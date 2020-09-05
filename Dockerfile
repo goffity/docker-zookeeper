@@ -5,6 +5,8 @@ LABEL maintainer="Goffity Corleone"
 ENV ZOOKEEPER_VERSION 3.6.1
 ENV ZK_HOME /opt/apache-zookeeper-${ZOOKEEPER_VERSION}-bin
 
+# RUN apk add --no-cache bash
+
 RUN wget -q https://downloads.apache.org/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/apache-zookeeper-${ZOOKEEPER_VERSION}-bin.tar.gz
 # RUN wget -q https://www.apache.org/dist/zookeeper/KEYS
 # RUN wget -q https://www.apache.org/dist/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz.asc
@@ -24,3 +26,4 @@ WORKDIR /opt/apache-zookeeper-${ZOOKEEPER_VERSION}-bin
 VOLUME ["/opt/apache-zookeeper-${ZOOKEEPER_VERSION}-bin/conf", "/opt/apache-zookeeper-${ZOOKEEPER_VERSION}-bin/data"]
 
 CMD /usr/sbin/sshd && bash /usr/bin/start-zk.sh
+# CMD ["/bin/bash"]
